@@ -65,7 +65,7 @@ public partial class MainWindow : Window
 
         SelectedAppLabel.Text = entry.ProcessName;
         ApplyButton.IsEnabled = true;
-        var existing = _limits.FirstOrDefault(l => l.PolicyName == entry.PolicyName);
+        var existing = _limits.FirstOrDefault(l => string.Equals(l.PolicyName, entry.PolicyName, StringComparison.OrdinalIgnoreCase));
         RemoveButton.IsEnabled = existing != null;
         if (existing != null)
         {
